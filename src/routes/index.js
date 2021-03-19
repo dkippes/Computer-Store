@@ -5,6 +5,6 @@ var router = express.Router();
 let mainController = require("../controllers/mainController");
 
 /* GET home page. */
-router.get('/', mainController.index);
+router.get('/', mainController.home);
 
 module.exports = router;

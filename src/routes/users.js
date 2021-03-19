@@ -9,5 +9,7 @@ router.get('/register', usersController.registerView);
 router.post('/register', usersController.createUser);
 router.get('/login', usersController.loginView);
 router.post('/login', usersController.loginUser);
+router.get('/editUser/:id', usersController.editUserView);
+router.post('/editUser/:id', usersController.editUser);
 
 module.exports = router;

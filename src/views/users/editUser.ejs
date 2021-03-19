@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modify User</title>
+</head>
+<body>
+	<%- include('../partials/nav.ejs') %>
+
+	<h1 style="text-align: center;">Modify User</h1>
+
+	<% if(typeof formErrors != "undefined") { %>
+		<p style="color: crimson; text-align: center;"><%= formErrors %> </p>
+	<% } %>
+
+	<form style="text-align: center;" action="/users/editUser/<%= user._id %>" method="POST">
+		<input type="text" name="username" placeholder="Escribe tu usuario" value="<%= user.username %>">
+		<input type="text" name="password" placeholder="Escribe tu contraseña" value="<%= user.password %>">
+		<button type="submit">Modify</button>
+	</form>
+	
+</body>
+</html>

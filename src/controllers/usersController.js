@@ -46,6 +46,47 @@ let usersController = {
 		
 		res.render('index', {userLogged: user});
 	},
+
+
+	editUserView: async (req, res, next) => {
+		const idUrl = req.params.id;
+
+		// El id en mongo usa 24 caracteres HEX - Si tira error es por eso
+
+		const user = await User.findOne({
+			_id: idUrl
+		});
+
+		if(user == null) {
+			return res.render('error');
+		}
+
+		res.render('users/editUser', {user: user});
+	},
+
+	editUser: async (req, res, next) => {
+		const idUrl = req.params.id;
+
+		// If empty
+		if(req.body.username == "" || req.body.password == "") {
+
+			const user = await User.findOne({
+				_id: idUrl
+			});
+
+			return res.render('users/editUser', {user: user, formErrors: 'This can not be empty'});
+		}
+
+
+		await User.findOneAndUpdate({
+			_id: idUrl
+		}, {
+			username: req.body.username,
+			password: req.body.password
+		});
+
+		res.redirect('/users');
+	},
 	
 }
 
