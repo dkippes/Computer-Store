@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Home</title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('./partials/nav.ejs') %> 
+    <h1 style="text-align: center;">Welcome to Computer Store</p>
+		<% if(typeof userLogged == "undefined") { %>
+			<p>The user hasn't logged yet</p>	
+		<% } else { %>
+			<p><%= userLogged.username%> !</p>
+		<% } %> 
+		
   </body>
 </html>

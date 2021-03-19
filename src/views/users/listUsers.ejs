@@ -7,10 +7,14 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>List of Users</h1>
-	<ul>
+	<%- include('../partials/nav.ejs') %>
+	<h1 style="text-align: center;">List of Users</h1>
+	<ul style="text-align: center;">
 		<% users.forEach(user => { %>
-			<li><%= user.username %> <a href="">Editar</a> <a href="">Borrar</a></li>
+			<li style="list-style-type: none;">
+				<%= user.username %> 
+				<a style="color: red;" href="">Editar</a> 
+				<a style="color: blue;" href="">Borrar</a></li>
 		<% }) %> 
 	</ul>
 	
