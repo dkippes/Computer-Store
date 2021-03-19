@@ -1,6 +1,7 @@
 const User = require('../models/User');
 
-let usersController = {
+const usersController = {
+
 	listUsers: async (req, res, next) => {
 		const users = await User.find();
 
@@ -8,11 +9,17 @@ let usersController = {
 	},
 
 
+
+	
+
     registerView: (req, res, next) => {
 		res.render('users/register');
 	},
+	
 
 
+
+	
 	createUser: async (req, res, next) => {
 
 		if(req.body.username == "" || req.body.password == "") {
@@ -29,10 +36,17 @@ let usersController = {
 	},
 
 
+
+
+	
 	loginView: (req, res, next) => {
 		res.render('users/login');
 	},
 
+
+
+
+	
 	loginUser: async (req, res, next) => {
 
 		const user = await User.findOne({
@@ -50,6 +64,9 @@ let usersController = {
 	},
 
 
+
+
+	
 	editUserView: async (req, res, next) => {
 		const idUrl = req.params.id;
 
@@ -66,6 +83,10 @@ let usersController = {
 		res.render('users/editUser', {user: user});
 	},
 
+
+
+
+	
 	editUser: async (req, res, next) => {
 		const idUrl = req.params.id;
 
@@ -91,6 +112,9 @@ let usersController = {
 	},
 
 
+
+
+	
 	deleteUser: async (req, res, next) => {
 		const idUrl = req.params.id;
 
@@ -100,7 +124,7 @@ let usersController = {
 		})
 
 		res.redirect('/users');
-	},
+	}
 	
 }
 

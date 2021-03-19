@@ -8,7 +8,8 @@ const productSchema = new Schema({
 	price: {
 		type: Number,
 		default: 0
-	}
+	},
+	category_id: Number
 });
 
 module.exports = model('Product', productSchema);

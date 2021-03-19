@@ -1,8 +1,12 @@
+const mainController = {
 
-let mainController = {
     home: (req, res, next) => {
 		res.render('index', {userLogged: req.session.userLogged});
 	},
+
+
+
+
 
 	logOut : (req, res, next) => {
 
@@ -10,8 +14,8 @@ let mainController = {
           req.session.destroy();
           res.redirect('/');
         }
-    },
-
+		
+    }
 } 
 
 
