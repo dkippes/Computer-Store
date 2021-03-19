@@ -89,6 +89,18 @@ let usersController = {
 
 		res.redirect('/users');
 	},
+
+
+	deleteUser: async (req, res, next) => {
+		const idUrl = req.params.id;
+
+		// El id en mongo usa 24 caracteres HEX - Si tira error es por eso
+		await User.findOneAndDelete({
+			_id: idUrl
+		})
+
+		res.redirect('/users');
+	},
 	
 }
 
