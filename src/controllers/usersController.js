@@ -42,9 +42,11 @@ let usersController = {
 
 		if(user == null) {
 			res.render('users/login', {userNotFound: 'Credential error or User Not Found'})
+		} else {
+			req.session.userLogged = user.username;
+			res.redirect('/');
 		}
 		
-		res.render('index', {userLogged: user});
 	},
 
 

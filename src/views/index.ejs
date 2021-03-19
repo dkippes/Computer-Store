@@ -9,7 +9,8 @@
 		<% if(typeof userLogged == "undefined") { %>
 			<p>The user hasn't logged yet</p>	
 		<% } else { %>
-			<p><%= userLogged.username%> !</p>
+			<p><%= userLogged%> !</p>
+			<a href="/logout">LogOut</a>
 		<% } %> 
 		
   </body>
